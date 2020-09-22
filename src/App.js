@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 // STATICS
 import "./App.css";
@@ -8,10 +9,12 @@ function App() {
   return (
     <div className="app">
       <Header />
-      {/* AppBody */}
-      {/* Sidebar */}
-      {/* Feed */}
-      {/* Widgets */}
+
+      <div className="app__body">
+        <Sidebar />
+        {/* Feed */}
+        {/* Widgets */}
+      </div>
     </div>
   );
 }
