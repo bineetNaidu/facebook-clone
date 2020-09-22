@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./Header";
 
 // STATICS
 import "./App.css";
@@ -6,7 +7,11 @@ import "./App.css";
 function App() {
   return (
     <div className="app">
-      <h1>Let build a Facebook Clone...</h1>
+      <Header />
+      {/* AppBody */}
+      {/* Sidebar */}
+      {/* Feed */}
+      {/* Widgets */}
     </div>
   );
 }
