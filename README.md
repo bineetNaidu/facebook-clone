@@ -22,6 +22,21 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+## Usage
+
+- Create a [firebase](https://firebase.google.com/) Account.
+- create firebase.js file in ./src directory.
+- Add firebase Config from your firebase SDK
+- Create an instance for FIRESTORE as db, AUTH as auth , GOOGLE_PROVIDER as provider
+
+- write ->
+
+```javascript
+// EXPORTS
+export { auth, provider };
+export default db;
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
