@@ -4,6 +4,7 @@ import VideocamIcon from "@material-ui/icons/Videocam";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import useFormState from "./customs/hooks/useFormState";
+import { useStateValue } from "./customs/contexts/state.context";
 
 // STATICS
 import "./MessageSenderForm.css";
@@ -14,6 +15,7 @@ const MessageSenderForm = ({}) => {
   // HOOKS && CONTEXTS
   const [input, handleInputChange, resetInput] = useFormState("");
   const [imageUrl, handleImageUrlChange, resetImageUrl] = useFormState("");
+  const [{ user }] = useStateValue();
 
   // FUNCTIONS
   const handleSubmit = (e) => {
@@ -28,13 +30,13 @@ const MessageSenderForm = ({}) => {
   return (
     <div className="messageSender">
       <div className="messageSender__top">
-        <Avatar />
+        <Avatar src={user.photoURL} />
         <form>
           <input
             className="messageSender__input"
             value={input}
             onChange={handleInputChange}
-            placeholder={`What's on your mind`}
+            placeholder={`What's on your mind? ${user.displayName}`}
           />
           <input
             placeholder="Image URL (OPT.)"

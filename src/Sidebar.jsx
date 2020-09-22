@@ -7,17 +7,17 @@ import PeopleIcon from "@material-ui/icons/People";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
+import { useStateValue } from "./customs/contexts/state.context";
 
 // STATICS
 import "./Sidebar.css";
 
 function Sidebar() {
+  // HOOKS && CONTEXTS
+  const [{ user }] = useStateValue();
   return (
     <div className="sidebar">
-      <SidebarRow
-        title="Bineet Naidu"
-        src="https://avatars0.githubusercontent.com/u/66471461?v=4"
-      />
+      <SidebarRow title={user.displayName} src={user.photoURL} />
       <SidebarRow
         title="COVID-19 Information Center"
         Icon={LocalHospitalIcon}

@@ -1,5 +1,10 @@
-import { Button } from "@material-ui/core";
 import React from "react";
+import { Button } from "@material-ui/core";
+import { useStateValue } from "./customs/contexts/state.context";
+import { actionTypes } from "./customs/contexts/reducer";
+
+// DATABASE
+import { auth, provider } from "./firebase";
 
 // STATICS
 import "./Login.css";
@@ -8,10 +13,17 @@ const Login = () => {
   // STATES
 
   // HOOKS && CONTEXTS
+  const [, dispatch] = useStateValue();
 
   // FUNCTIONS
   const signIn = () => {
     // sign in stuff ..
+    auth
+      .signInWithPopup(provider)
+      .then((res) => {
+        dispatch({ type: actionTypes.SET_USET, user: res.user });
+      })
+      .catch((err) => alert(err.message));
   };
 
   return (
