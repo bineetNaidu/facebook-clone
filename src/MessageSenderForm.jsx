@@ -5,11 +5,13 @@ import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import useFormState from "./customs/hooks/useFormState";
 import { useStateValue } from "./customs/contexts/state.context";
+import db from "./firebase";
+import firebase from "firebase";
 
 // STATICS
 import "./MessageSenderForm.css";
 
-const MessageSenderForm = ({}) => {
+const MessageSenderForm = () => {
   // STATES
 
   // HOOKS && CONTEXTS
@@ -21,7 +23,13 @@ const MessageSenderForm = ({}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // some db stuff
-    alert("yooooo!!!");
+    db.collection("posts").add({
+      message: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profilePic: user.photoURL,
+      username: user.displayName,
+      image: imageUrl,
+    });
     // some db stuff
     resetInput();
     resetImageUrl();
