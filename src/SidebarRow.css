@@ -1,4 +1,5 @@
-.sidebarRow {
+.sidebarRow,
+.sidebarRow__darkMode {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -9,12 +10,19 @@
   border-radius: 10px;
 }
 
-.sidebarRow > h4 {
+.sidebarRow__darkMode:hover {
+  background-color: #12151f;
+  border-radius: 10px;
+}
+
+.sidebarRow,
+.sidebarRow__darkMode > h4 {
   margin-left: 20px;
   font-weight: 600;
 }
 
-.sidebarRow > .MuiSvgIcon-root {
+.sidebarRow,
+.sidebarRow__darkMode > .MuiSvgIcon-root {
   font-size: xx-large;
   color: #2e81f4;
 }

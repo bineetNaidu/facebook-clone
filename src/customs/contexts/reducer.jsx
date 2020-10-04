@@ -1,9 +1,10 @@
 export const initialState = {
   user: null,
+  isDarkMode: true,
 };
 
 export const actionTypes = {
-  SET_USET: "SET_USER",
+  SET_USET: 'SET_USER',
 };
 
 const reducer = (state, action) => {
@@ -12,6 +13,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+
+    case 'SET_MODE':
+      return {
+        isDarkMode: action.mode,
       };
 
     default:
