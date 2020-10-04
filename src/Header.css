@@ -102,3 +102,58 @@
 .header__right--darkMode > button {
   color: white;
 }
+
+@media (max-width: 725px) {
+  .header__darkMode,
+  .header {
+    padding: 15px 10px !important;
+  }
+  .header__option,
+  .header__option--darkMode {
+    padding: 0 10px;
+  }
+
+  .header__input {
+    display: none;
+  }
+
+  .header__option:hover,
+  .header__option--darkMode:hover {
+    padding: 0 10px;
+  }
+
+  .header__info > h4 {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .header__darkMode,
+  .header {
+    overflow-x: scroll;
+  }
+
+  .header__left {
+    padding-right: 10px;
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+}

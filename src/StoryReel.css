@@ -1,3 +1,10 @@
 .storyReel {
   display: flex;
 }
+
+@media (max-width: 580px) {
+  .storyReel {
+    overflow: scroll;
+    padding: 0 20px;
+  }
+}

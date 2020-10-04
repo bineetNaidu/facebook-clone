@@ -27,3 +27,12 @@
   left: 10px;
   color: #fff;
 }
+
+@media (max-width: 725px) {
+  .story {
+    width: 100px;
+    height: 160px;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+}

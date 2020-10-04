@@ -6,3 +6,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 725px) {
+  .feed {
+    padding: 30px 70px;
+    overflow: hidden;
+  }
+}

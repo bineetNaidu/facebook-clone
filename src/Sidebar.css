@@ -2,3 +2,16 @@
   padding: 25px 10px;
   flex: 0.33;
 }
+
+@media (min-width: 848px) {
+  .sidebar {
+    flex: 0.22;
+    padding: 15px 5px;
+  }
+}
+
+@media (max-width: 720px) {
+  .sidebar {
+    display: none;
+  }
+}

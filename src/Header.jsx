@@ -11,14 +11,29 @@ import ForumRoundedIcon from '@material-ui/icons/ForumRounded';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useDarkMode, useStateValue } from './customs/contexts/state.context';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import { auth } from './firebase';
 
 // STATICS
 import './Header.css';
 
 function Header() {
+  // States
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
   // HOOKS && CONTEXTS
   const [{ user }] = useStateValue();
-  const [{ isDarkMode }] = useDarkMode();
+  const [{ isDarkMode }, dispatch] = useDarkMode();
+
+  // Functions
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div className={isDarkMode ? 'header__darkMode' : 'header'}>
@@ -77,9 +92,29 @@ function Header() {
         <IconButton>
           <NotificationsActiveIcon />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={handleClick}>
           <ExpandMoreIcon />
         </IconButton>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem
+            onClick={() => {
+              dispatch({
+                type: 'SET_MODE',
+                mode: !isDarkMode,
+              });
+              handleClose();
+            }}
+          >
+            Dark Mode
+          </MenuItem>
+          <MenuItem onClick={() => auth.signOut()}>Logout</MenuItem>
+        </Menu>
       </div>
     </div>
   );
